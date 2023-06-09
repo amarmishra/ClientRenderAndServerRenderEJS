@@ -1,26 +1,28 @@
 const myTasks = require('../models/todoSchema');
 
-
+//rendering the home page with the data present in the DB
 module.exports.homecontoller = async function (req, res) {
-    let mytaskList = await myTasks.find({});
+    let mytaskList = await myTasks.find({});        //find method is used to get all the data present in DB. 
     res.render('home', {
         Alltask: mytaskList
     });
 }
 
+
+//Adding the task into the DB by collecting the input, category and date values provided in the frontend.
 module.exports.TaskAddition = function (req, res) {
     myTasks.create({
         task: req.body.task,
         category: req.body.category,
         due: req.body.due
     })
-    res.redirect('back');
+    res.redirect('back');       //After adding the data to the DB, we redirect back to home page where the data is displayed
 }
 
 
-
+//Deleting the selected Task from the DB and displaying the remaining tasks on the home page
 module.exports.removeFromDB = async function (req, res) {
-    let ids = req.params.DelArray.split(',');
+    let ids = req.params.DelArray.split(',');   //here we use query params to get the ID of the selected Task and we remove it from DB.
 
     for (let i of ids) {
         await myTasks.findByIdAndDelete({ _id: i });
@@ -28,45 +30,3 @@ module.exports.removeFromDB = async function (req, res) {
     res.redirect('back');
 }
 
-module.exports.allTasks = async function (req, res) {
-    let mytaskList = await myTasks.find({task:'Afred'});
-    res.render('home', {
-        Alltask: mytaskList
-    });
-    console.log(mytaskList);
-}
-
-module.exports.personalTasks = async function (req, res) {
-    let personalTaskList = await myTasks.find({ category: 'Personal' });
-    res.render('home', {
-        Alltask: personalTaskList
-    });
-}
-
-module.exports.workTasks = async function (req, res) {
-    let workTaskList = await myTasks.find({ category: 'Work' });
-    res.render('home', {
-        Alltask: workTaskList
-    });
-}
-
-module.exports.schoolTasks = async function (req, res) {
-    let schoolTaskList = await myTasks.find({ category: 'School' });
-    res.render('home', {
-        Alltask: schoolTaskList
-    });
-}
-
-module.exports.homeTasks = async function (req, res) {
-    let homeTaskList = await myTasks.find({ category: 'home' });
-    res.render('home', {
-        Alltask: homeTaskList
-    });
-}
-
-module.exports.other = async function(req,res){
-    let othertaskList = await myTasks.find({category:'other'});
-    res.render('home', {
-        Alltask : othertaskList
-    })
-}

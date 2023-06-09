@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo App</title>
-    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/home.css">    <!--Adding the styling sheet to our ejs file -->
     
 </head>
 
@@ -14,15 +14,15 @@
     <div id="todo-container">
         <div id="All">
             <div id="heading-div">
-                <img src="/images/todoImage.png">
-                <h1 id="heading"> ToDo List Application </h1>
+                <img src="/images/todoImage.png">       <!--Adding the logo of todo list in the heading-->
+                <h1 id="heading"> ToDo List  </h1>
             </div>
-            <form method="post">
-                <div class="input">
+            <form method="post">        <!--Creating form which posts the data into the DB on submitting it-->
+                <div class="input">     <!--This is our input bar where we describe the task to be added in the list-->
                     <h2>Enter your task</h2>
                     <input type="text" class="inputbar" name="task" placeholder="Provide a task you want to do....!" required>
                 </div>
-                <div class=" category date">
+                <div class=" category date">    <!--Here we provide the category to the task-->
                     <div id="cat">
                         <h3>Choose a Category</h3>
                         <select name="category">
@@ -33,12 +33,12 @@
                             <option>other</option>
                         </select>
                     </div>
-                    <div id="duedate">
+                    <div id="duedate">      <!--This input is to provide the due date for every task while adding it to the list-->
                         <label for="due"> Due Date</label>
                         <input id="currDate" name="due" type="date"  required>
                     </div>
                 </div>
-                <div class="btns">
+                <div class="btns">          <!--Onclicking the add button the task will get added and clicking delete, the selected tasks will get deleted-->
                     <button type="submit" id="addBtn" formaction="/addTask"><img src="/images/add.png"> ADD Task </button>
                     <button type="submit" id="delID" onclick="deleteTaskFromDB()"><img src="/images/delete.jpeg"> Delete Tasks </button>
 
@@ -46,7 +46,7 @@
                 
             </form>
 
-            <div class="show-cat-wise">
+            <div class="show-cat-wise">     <!--These buttons are to specifically display the task based on the category selected-->
                 <button type="submit" class="categoryClass" id="all" value="all" onclick="showCategoryWise(this.id)"> All Tasks</button>
                 <button type="submit" class="categoryClass" id="personalTasks" value="personalTasks" onclick="showCategoryWise(this.id)"> Personal </button>
                 <button type="submit" class="categoryClass" id="Work" value="Work" onclick="showCategoryWise(this.id)"> Work </button>
@@ -55,56 +55,38 @@
                 <button type="submit" class="categoryClass" id="other" value="other" onclick="showCategoryWise(this.id)"> other </button>
                 
             </div>
-            
-
-            <div class="list-container">
+            <div class="list-container">    <!--This is the section where the tasks are displayed after fetching from the DB-->
                 <ul>
 
-                    <%for(let i of Alltask){%>
-                        <li>
+                    <%for(let i of Alltask){%>  <!--We have used view engine to get this attribute from our index.js file-->
+                        <li>                    <!--And all the required attributes are mapped accordingly-->
                             <div class="date-task">
                                 <div class="task">
                                     <input class="checkbox" name="checkbox" value="<%=i._id%>" type="checkbox" onclick="deleteTasks()"/>
                                     <label class="checkbox-label" for="checked">
-                                        <%= i.task%>
+                                        <%= i.task%>    <!--Mapping the task entered and posting it to the DB-->
                                     </label>
                                 </div>
                                 <div class="task-duedate">
                                     <p>
-                                        <%=i.due.toString().substring(4,15)%>
+                                        <%=i.due.toString().substring(4,15)%>   <!--Posting the date to the DB-->
                                     </p>
                                 </div>
                             </div>
                             <div id="list-cat">
                                 <p>
-                                    <%=i.category%>
+                                    <%=i.category%> <!--Posting the category of the tasks into the DB-->
                                 </p>
                             </div>
                         </li>
-                        <%}%>
-                            <!-- <li>
-
-                        <div class="date-task">
-                            <div class="task">
-                                <input class="checked" type="checkbox" />
-                                <label for="checked">going home</label>
-                            </div>
-                            <div class="task-duedate">
-                                <p>dd/yy/mm</p>
-                            </div>
-                        </div>
-                        <div id="list-cat">
-                            <p>personal</p>
-                        </div>
-                    </li> -->
-
+                        <%}%>    
                 </ul>
             </div>
-
-
         </div>
+        
     </div>
-    <script src="js/index.js"></script>
+    
+    <script src="js/index.js"></script>     <!--Adding the JS file to the ejs file-->
 </body>
 
 </html>

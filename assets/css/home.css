@@ -10,7 +10,6 @@ body{
 #todo-container{
     margin-left: 18vw;
     margin-top: 10vh;
-    /* border: 1px solid rgb(0, 0, 0); */
     width: 40vw;
     height: auto;
     display: flex;
@@ -18,8 +17,6 @@ body{
     justify-content: center;
     border-radius: 30px;
     background-color: rgb(0,0,0,0,0.5);
-    /* background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); */
-    /* background: -webkit-linear-gradient(left, rgb(196, 127, 246), rgb(241, 139, 241), rgb(140, 140, 247)); */
 }
 #All{
     width: 100%;
@@ -29,16 +26,14 @@ body{
 /* Styling the heading */
 #heading-div{
     display: flex;
-    /* border-radius: 30px; */
-    border-bottom: 1px solid rgb(97, 95, 95);
+    border-bottom: 1px solid rgb(137, 134, 134);
     align-items: center;
     justify-content: center;
 }
-/* #heading-div:hover{
-    box-shadow: 1px 1px 1px 1px rgb(152, 112, 112);
-    transition: 0.1s;
-} */
+
 #heading{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
     margin-left: 3%;
 }
 #heading-div img{
@@ -46,9 +41,10 @@ body{
     height: 50px;
 }
 
+/* Styling the input bar */
 .input{
     width: 100%;
-    border-bottom: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(137, 134, 134);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -65,8 +61,7 @@ body{
 }
 
 .inputbar::-webkit-input-placeholder {
-    /* WebKit, Blink, Edge */
-    color: rgb(22, 1, 22);
+    color: rgb(0, 0, 0);
 }
 
 
@@ -74,17 +69,16 @@ body{
 .category{
     display: flex;
     justify-content: flex-start;
-    border-bottom: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(137, 134, 134);
 }
+/* Styling the Category Div */
 #cat{
-    /* border: 1px solid rgb(255, 255, 255); */
     width: 50%;
     height: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    /* padding: 5px; */
     padding: 1%;
 }
 
@@ -98,7 +92,7 @@ body{
 /* Styling due date div */
 
 #duedate{
-    border-left: 1px solid rgb(0, 0, 0);
+    border-left: 1px solid rgb(137, 134, 134);
     width: 50%;
     height: 50px;
     display: flex;
@@ -114,10 +108,12 @@ body{
     border: none;
     background: transparent;
 }
+
+/* Styling the add and delete buttons */
 .btns{
     display: flex;
     /* margin-top: 25px; */
-    border-bottom: black 1px solid;
+    border-bottom: rgb(137, 134, 134);
     justify-content: space-evenly;
     padding: 10px;
 }
@@ -136,6 +132,7 @@ body{
     
 }
 
+/* Styling the button images */
 .btns button img{
     width: 30px;
     height: 30px;
@@ -152,8 +149,9 @@ body{
     color: white;
 }
 
+/* Styling the category based buttons which display the task according to category */
 .show-cat-wise{
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(137, 134, 134);
     padding: 2%;
     display: flex;
     align-items: center;
@@ -168,53 +166,64 @@ body{
     align-items: center;
     outline: none;
     padding: 10px;
-    /* border: none; */
+    border: none;
     border-radius: 15px;
 }
 
-#all
+.show-cat-wise button:hover{
+    box-shadow: 2px 2px 6px 2px brown;
+    transition: 1s;
+}
 
+/* Styling the list container */
 .list-container{
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
+    border: none;
 }
 .list-container ul{
     width: 100%;
     height: auto;
     list-style: none;
-    /* border: 3px solid rgb(83, 203, 35); */
-    
-
 }
+/* Styling the entire list container */
 ul li{
-    /* border: 3px solid rgb(226, 20, 20); */
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-right: 5%;
     padding: 1%;
+    border-radius: 20px;
 }
+ul li:hover{
+    box-shadow: 2px 2px 6px 2px brown;
+    transition: 1s;
+}
+
 .date-task{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    /* border: 1px solid black; */
 }
 
+/* Styling each task category in the list */
 #list-cat{
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* border: 2px solid rgb(229, 18, 18); */
+    border-radius: 15px;
     padding: 0px;
-    
     min-width: 20%;
     height: 50px;
 }
 
-/* Styling checkbox */
+#list-cat:hover{
+    box-shadow: 1px 1px 1px 1px brown;
+    transition: 1s;
+}
+
+/* Styling checkbox  to differentiate the finished task*/
 .checkbox:checked + label.checkbox-label{
     text-decoration: line-through;
-    color: white;
+    color: rgb(15, 15, 15);
 }
