@@ -1,6 +1,220 @@
 body{
-    background-color: aquamarine;
-    font-family: 'Times New Roman', Times, serif;
-    font-style: italic;
+
+    font-family: Arial, Helvetica, sans-serif;
+    background: url('../images/bgs.jpg');
+    background-attachment: fixed ;
+    background-size: 100% 100%;
     margin: 0px;
+}
+/* Styling the todo main container */
+#todo-container{
+    margin-left: 18vw;
+    margin-top: 10vh;
+    /* border: 1px solid rgb(0, 0, 0); */
+    width: 40vw;
+    height: auto;
+    display: flex;
+    box-shadow: 1px 1px 50px 5px rgb(221, 120, 11);
+    justify-content: center;
+    border-radius: 30px;
+    background-color: rgb(0,0,0,0,0.5);
+    /* background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); */
+    /* background: -webkit-linear-gradient(left, rgb(196, 127, 246), rgb(241, 139, 241), rgb(140, 140, 247)); */
+}
+#All{
+    width: 100%;
+    height: 100%;
+    
+}
+/* Styling the heading */
+#heading-div{
+    display: flex;
+    /* border-radius: 30px; */
+    border-bottom: 1px solid rgb(97, 95, 95);
+    align-items: center;
+    justify-content: center;
+}
+/* #heading-div:hover{
+    box-shadow: 1px 1px 1px 1px rgb(152, 112, 112);
+    transition: 0.1s;
+} */
+#heading{
+    margin-left: 3%;
+}
+#heading-div img{
+    width: 50px;
+    height: 50px;
+}
+
+.input{
+    width: 100%;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.input h2{
+    margin-left: 3%;
+}
+.input input{
+    outline: none;
+    border: none;
+    background: transparent;
+    margin-bottom: 3%;
+    margin-left: 3%;
+}
+
+.inputbar::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: rgb(22, 1, 22);
+}
+
+
+/* styling category calss */
+.category{
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid rgb(0, 0, 0);
+}
+#cat{
+    /* border: 1px solid rgb(255, 255, 255); */
+    width: 50%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    /* padding: 5px; */
+    padding: 1%;
+}
+
+#cat select{
+    outline: none;
+    border: none;
+    background: transparent;
+    margin-bottom: 7%;
+}
+
+/* Styling due date div */
+
+#duedate{
+    border-left: 1px solid rgb(0, 0, 0);
+    width: 50%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 5px; */
+    padding: 1%;
+}
+#duedate input{
+    margin-top: 3%;
+    width: 50%;
+    outline: none;
+    border: none;
+    background: transparent;
+}
+.btns{
+    display: flex;
+    /* margin-top: 25px; */
+    border-bottom: black 1px solid;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.btns button{
+    padding: 10px;
+    background: transparent;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-width: 25%;
+    min-height: 20%;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    
+}
+
+.btns button img{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+}
+
+#addBtn{
+    background-color: rgb(10, 149, 10);
+    color: white;
+}
+
+#delID{
+    background-color: red;
+    color: white;
+}
+
+.show-cat-wise{
+    border-bottom: 1px solid black;
+    padding: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.show-cat-wise button{
+    background: transparent;
+    /* color: white; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    outline: none;
+    padding: 10px;
+    /* border: none; */
+    border-radius: 15px;
+}
+
+#all
+
+.list-container{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+.list-container ul{
+    width: 100%;
+    height: auto;
+    list-style: none;
+    /* border: 3px solid rgb(83, 203, 35); */
+    
+
+}
+ul li{
+    /* border: 3px solid rgb(226, 20, 20); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 5%;
+    padding: 1%;
+}
+.date-task{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* border: 1px solid black; */
+}
+
+#list-cat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid rgb(229, 18, 18); */
+    padding: 0px;
+    
+    min-width: 20%;
+    height: 50px;
+}
+
+/* Styling checkbox */
+.checkbox:checked + label.checkbox-label{
+    text-decoration: line-through;
+    color: white;
 }

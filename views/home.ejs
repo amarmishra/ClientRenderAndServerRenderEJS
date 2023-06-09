@@ -1,17 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo App</title>
     <link rel="stylesheet" href="/css/home.css">
+    
 </head>
-<body>
-    <div>
-        <h1 id="heading"> ToDo List Application </h1>
-        <hr/>
 
+<body>
+    <div id="todo-container">
+        <div id="All">
+            <div id="heading-div">
+                <img src="/images/todoImage.png">
+                <h1 id="heading"> ToDo List Application </h1>
+            </div>
+            <form method="post">
+                <div class="input">
+                    <h2>Enter your task</h2>
+                    <input type="text" class="inputbar" name="task" placeholder="Provide a task you want to do....!" required>
+                </div>
+                <div class=" category date">
+                    <div id="cat">
+                        <h3>Choose a Category</h3>
+                        <select name="category">
+                            <option>Personal</option>
+                            <option>Work</option>
+                            <option>School</option>
+                            <option>home</option>
+                            <option>other</option>
+                        </select>
+                    </div>
+                    <div id="duedate">
+                        <label for="due"> Due Date</label>
+                        <input id="currDate" name="due" type="date"  required>
+                    </div>
+                </div>
+                <div class="btns">
+                    <button type="submit" id="addBtn" formaction="/addTask"><img src="/images/add.png"> ADD Task </button>
+                    <button type="submit" id="delID" onclick="deleteTaskFromDB()"><img src="/images/delete.jpeg"> Delete Tasks </button>
+
+                </div>
+                
+            </form>
+
+            <div class="show-cat-wise">
+                <button type="submit" class="categoryClass" id="all" value="all" onclick="showCategoryWise(this.id)"> All Tasks</button>
+                <button type="submit" class="categoryClass" id="personalTasks" value="personalTasks" onclick="showCategoryWise(this.id)"> Personal </button>
+                <button type="submit" class="categoryClass" id="Work" value="Work" onclick="showCategoryWise(this.id)"> Work </button>
+                <button type="submit" class="categoryClass" id="School" value="School" onclick="showCategoryWise(this.id)"> School </button>
+                <button type="submit" class="categoryClass" id="home" value="home" onclick="showCategoryWise(this.id)"> home </button>
+                <button type="submit" class="categoryClass" id="other" value="other" onclick="showCategoryWise(this.id)"> other </button>
+                
+            </div>
+            
+
+            <div class="list-container">
+                <ul>
+
+                    <%for(let i of Alltask){%>
+                        <li>
+                            <div class="date-task">
+                                <div class="task">
+                                    <input class="checkbox" name="checkbox" value="<%=i._id%>" type="checkbox" onclick="deleteTasks()"/>
+                                    <label class="checkbox-label" for="checked">
+                                        <%= i.task%>
+                                    </label>
+                                </div>
+                                <div class="task-duedate">
+                                    <p>
+                                        <%=i.due.toString().substring(4,15)%>
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="list-cat">
+                                <p>
+                                    <%=i.category%>
+                                </p>
+                            </div>
+                        </li>
+                        <%}%>
+                            <!-- <li>
+
+                        <div class="date-task">
+                            <div class="task">
+                                <input class="checked" type="checkbox" />
+                                <label for="checked">going home</label>
+                            </div>
+                            <div class="task-duedate">
+                                <p>dd/yy/mm</p>
+                            </div>
+                        </div>
+                        <div id="list-cat">
+                            <p>personal</p>
+                        </div>
+                    </li> -->
+
+                </ul>
+            </div>
+
+
+        </div>
     </div>
+    <script src="js/index.js"></script>
 </body>
+
 </html>
