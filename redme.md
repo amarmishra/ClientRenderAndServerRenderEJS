@@ -1,6 +1,6 @@
 # ToDo App
-
-## Tech-Stack  :
+----------
+### Tech-Stack  :
 
 * Javascript, CSS, MongoDB, Mongoose, NodeJs, ExpressJs, view engine(ejs), git.
 
@@ -11,10 +11,10 @@
 5. Used ExpressJs to develop the APIs required for the application.
 6. Added the comments so that it will be clear to go through the entire code.
 
-## How to Use :
+### How to Use :
+----------------
 
 1. Enter the task in the input bar that is required to be added, select the category and date.
 2. On clicking the add button the task gets added to the DB and is displayed on the main screen.
 3. We can select the checkbox of the task which is required to delete and hit the delete button.
 4. There are different buttons present below the add button and delete button. On clicking the them, it displays the related task to that button.
- 

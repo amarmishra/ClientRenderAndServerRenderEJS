@@ -1,7 +1,7 @@
 const express = require('express');     //importing express JS
 const database = require('./config/mongoose');  //importing the DB connection
 const app = express();          //creating app server
-const port = 1003;              //initialising the port where the server will start running.
+const port = 2000;              //initialising the port where the server will start running.
 const router = require('./routes/index');   //importing the routes file, where the APIs are created.
 
 app.use(express.urlencoded());

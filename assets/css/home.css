@@ -1,7 +1,7 @@
 body{
 
     font-family: Arial, Helvetica, sans-serif;
-    background: url('../images/bgs.jpg');
+    background: url('../images/background.jpg');
     background-attachment: fixed ;
     background-size: 100% 100%;
     margin: 0px;
@@ -13,10 +13,10 @@ body{
     width: 40vw;
     height: auto;
     display: flex;
-    box-shadow: 1px 1px 50px 5px rgb(221, 120, 11);
+    box-shadow: 1px 1px 50px 5px rgb(243, 239, 239);
     justify-content: center;
     border-radius: 30px;
-    background-color: rgb(0,0,0,0,0.5);
+    background-color: rgb(183, 210, 215);
 }
 #All{
     width: 100%;
@@ -140,12 +140,12 @@ body{
 }
 
 #addBtn{
-    background-color: rgb(10, 149, 10);
+    background-color: rgb(16, 76, 98);
     color: white;
 }
 
 #delID{
-    background-color: red;
+    background-color: rgb(239, 20, 9);
     color: white;
 }
 

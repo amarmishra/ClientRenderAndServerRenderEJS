@@ -3,7 +3,7 @@ const myTasks = require('../models/todoSchema');
 
 //Rendering the tasks based on all the type of categories
 module.exports.allTasks = async function (req, res) {
-    let mytaskList = await myTasks.find({task:'Afred'});
+    let mytaskList = await myTasks.find({task:'Guru'});
     res.render('home', {
         Alltask: mytaskList
     });

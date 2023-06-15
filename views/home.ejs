@@ -14,7 +14,7 @@
     <div id="todo-container">
         <div id="All">
             <div id="heading-div">
-                <img src="/images/todoImage.png">       <!--Adding the logo of todo list in the heading-->
+                <img src="/images/list.png">       <!--Adding the logo of todo list in the heading-->
                 <h1 id="heading"> ToDo List  </h1>
             </div>
             <form method="post">        <!--Creating form which posts the data into the DB on submitting it-->
@@ -40,7 +40,7 @@
                 </div>
                 <div class="btns">          <!--Onclicking the add button the task will get added and clicking delete, the selected tasks will get deleted-->
                     <button type="submit" id="addBtn" formaction="/addTask"><img src="/images/add.png"> ADD Task </button>
-                    <button type="submit" id="delID" onclick="deleteTaskFromDB()"><img src="/images/delete.jpeg"> Delete Tasks </button>
+                    <button type="submit" id="delID" onclick="deleteTaskFromDB()"><img src="/images/delete.png"> Delete Tasks </button>
 
                 </div>
                 
@@ -56,8 +56,8 @@
                 
             </div>
             <div class="list-container">    <!--This is the section where the tasks are displayed after fetching from the DB-->
-                <ul>
-
+                <ul id="task-list-manipulate">
+                   
                     <%for(let i of Alltask){%>  <!--We have used view engine to get this attribute from our index.js file-->
                         <li>                    <!--And all the required attributes are mapped accordingly-->
                             <div class="date-task">
@@ -85,7 +85,9 @@
         </div>
         
     </div>
-    
+    <script>
+        let allTask = JSON.parse(`<%-JSON.stringify(Alltask)%>`)
+    </script>
     <script src="js/index.js"></script>     <!--Adding the JS file to the ejs file-->
 </body>
 

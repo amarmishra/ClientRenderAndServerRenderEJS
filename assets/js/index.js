@@ -1,3 +1,8 @@
+/**code changes by Amar Mishra for filter by category with client side filtering */
+let allTask = JSON.parse(`<%-JSON.stringify(Alltask)%>`)
+/** */
+
+const taskListFiltered=document.getElementById('task-list-manipulate');
 let delTaskarr=[];
 let taskrem = document.getElementById('delID'); //delete button
 
@@ -26,18 +31,43 @@ function deleteTaskFromDB(){
 
 // adding formaction to show tasks as per the category selected when clicked on the category buttons.
 
+/**code changed by Amar Mishra */
 function showCategoryWise(id){
     
-    if(id === "all"){
-        document.getElementById(id).formAction = '/';
+    let filteredList;
+    if(id==='all') {
+        filteredList=allTask
+    } else {
+        filteredList=allTask.filter((task)=>task.category===id)
     }
-    else{
-        document.getElementById(id).formAction = `/${id}`;
-    }
-    console.log(id);  
-    location.href = document.getElementById(id).formAction;
-}
+   let listItems=""
+    for(let i of filteredList){  
+        listItems+=`<li>                    
+            <div class="date-task">
+                <div class="task">
+                    <input class="checkbox" name="checkbox" value="${i._id}" type="checkbox" onclick="${deleteTasks()}"/>
+                    <label class="checkbox-label" for="checked">
+                        ${ i.task}    
+                    </label>
+                </div>
+                <div class="task-duedate">
+                    <p>
+                        ${i.due.toString().substring(4,15)}   
+                    </p>
+                </div>
+            </div>
+            <div id="list-cat">
+                <p>
+                    ${i.category}
+                </p>
+            </div>
+        </li>`
+        
+    }  
 
+        taskListFiltered.innerHTML=listItems
+}
+/** */
 // To remove all the past dates from the date field
 
 var date = new Date();

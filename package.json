@@ -1,5 +1,5 @@
 {
-  "name": "todo-app",
+  "name": "todo-app-with-ejs-data-filter",
   "version": "1.0.0",
   "description": "ToDo application backend project",
   "main": "index.js",
@@ -12,7 +12,7 @@
     "-",
     "Backend"
   ],
-  "author": "AfredHussain",
+  "author": "Gurunath and Amar Mishra",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.9",
